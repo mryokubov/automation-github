@@ -1,5 +1,6 @@
 package tests;
 
+import creds.UserCredentials;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.UserAccountPage;
-
+import static creds.UserCredentials.*;
 import java.time.Duration;
 
 /**
@@ -28,7 +29,7 @@ public class UpdatePasswordEndToEndTest {
     }
 
     @Test
-    public void updateUserPasswordTest(){
+    public void updateUserPasswordTest() throws InterruptedException {
         driver.get("http://automationpractice.com");
 
         MainPage mainPage = new MainPage(driver);
@@ -36,10 +37,9 @@ public class UpdatePasswordEndToEndTest {
         UserAccountPage userPage = new UserAccountPage(driver);
 
         mainPage.clickSignIn();
-        loginPage.signIn("breitenberg.antonio@gmail.com","user123");
+        loginPage.signIn("breitenberg.antonio@gmail.com",OLD_PASSWORD);
         userPage.clickOnMyPersonalTab();
-        userPage.changePassword("user123","newUser123");
-
+        userPage.changePassword(OLD_PASSWORD,NEW_PASSWORD);
 
     }
 
