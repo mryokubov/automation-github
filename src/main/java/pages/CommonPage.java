@@ -27,5 +27,4 @@ public class CommonPage {
         signInLink.click();
     }
 
-
 }

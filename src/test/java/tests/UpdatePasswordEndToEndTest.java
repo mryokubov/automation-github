@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 import pages.MainPage;
 
 import java.time.Duration;
@@ -30,16 +31,16 @@ public class UpdatePasswordEndToEndTest {
         driver.get("http://automationpractice.com");
 
         MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
 
         mainPage.clickSignIn();
-
-
+        loginPage.signIn("breitenberg.antonio@gmail.com","user123");
 
 
     }
 
     @AfterMethod
     public void cleanUp(){
-    //    driver.quit();
+        driver.quit();
     }
 }
