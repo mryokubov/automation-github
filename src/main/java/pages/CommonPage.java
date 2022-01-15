@@ -27,4 +27,7 @@ public class CommonPage {
         signInLink.click();
     }
 
+    public void clickContactUs(){
+        contactUsLink.click();
+    }
 }

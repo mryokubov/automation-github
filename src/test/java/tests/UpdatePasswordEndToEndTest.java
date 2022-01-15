@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MainPage;
+import pages.UserAccountPage;
 
 import java.time.Duration;
 
@@ -32,15 +33,19 @@ public class UpdatePasswordEndToEndTest {
 
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
+        UserAccountPage userPage = new UserAccountPage(driver);
 
         mainPage.clickSignIn();
         loginPage.signIn("breitenberg.antonio@gmail.com","user123");
+        userPage.clickOnMyPersonalTab();
+        userPage.changePassword("user123","newUser123");
 
 
     }
 
     @AfterMethod
-    public void cleanUp(){
+    public void cleanUp() throws InterruptedException {
+        Thread.sleep(2000);
         driver.quit();
     }
 }
