@@ -22,7 +22,6 @@ public class CommonPage {
     @FindBy(partialLinkText = "Contact us")
     WebElement contactUsLink;
 
-
     public void clickSignIn(){
         signInLink.click();
     }
@@ -30,4 +29,5 @@ public class CommonPage {
     public void clickContactUs(){
         contactUsLink.click();
     }
+
 }
