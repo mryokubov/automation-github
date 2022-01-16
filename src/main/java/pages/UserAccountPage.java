@@ -37,12 +37,14 @@ public class UserAccountPage extends CommonPage{
     }
 
     public void changePassword(String oldPass, String newPass) throws InterruptedException {
+
         oldPasswdInput.sendKeys(oldPass);
         newPasswordInput.sendKeys(newPass);
         confirmNewPasswrdInput.sendKeys(newPass);
         saveBtn.click();
         Thread.sleep(2000);
         verifyPasswdChangedAlert();
+
     }
 
     private void verifyPasswdChangedAlert(){
