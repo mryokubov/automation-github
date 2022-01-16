@@ -26,11 +26,11 @@ public class LoginPage extends CommonPage{
 
 
     public void signIn(String email, String password){
+
         emailInput.sendKeys(email);
         passwdInput.sendKeys(password);
         signInButton.click();
+
     }
-
-
 
 }
